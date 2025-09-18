@@ -1,1 +1,40 @@
-Host system : Win11   virtual platform: Virtualbox   Hardware: Ram: 16b 1867MT/s    CPU: i3-13100F      SSD: 466Gb  (ignore that)
+Host system : Win11   virtual platform: Virtualbox   Hardware: Ram: 16b 1867MT/s    CPU: i3-13100F      Storage: 466Gb  (ignore that)
+
+Virtual machines:   2
+
+
+
+Kali Linux - (Attacker)
+
+OS version: Debian      Distro: Kali-Linux 2025.2              Ram:4Gb   Storage: 80Gb    Network: NAT   Password: Custom *not actually Custom
+
+Tools used:
+
+Network interfaces Configured:
+
+Notes:       I reinstalled the iso 3 times because I 
+              set passwords without writing them down on paper, so I
+              ended up forgetting this is basically v3.
+
+
+
+
+Windows 11 -(Target)
+
+OS Version: 24H2                                               Ram: 4Gg  Storage: 80Gb    Network: NAT  Password: Custom
+
+Account type: Admin
+
+Vulnerbilites used: disabled Windows defender,  Firewall disabled,  
+
+Network interfaces Configured:
+
+Notes: it was really easy setting up it made me question Linux
+
+
+
+
+
+
+
+
