@@ -1,0 +1,23 @@
+Kali (Attacker)
+
+Network Type: [Host-only/Bridged/NAT]
+IP Range: 192.168.x.x/24                                                             [Host Machine]
+Gateway: 192.168.x.1                                                                       |
+DNS: blank rn                                                                           [Virtual Network]
+                                                                                           |
+                                                                                           ├── Kali Linux VM (192.168.x.x)
+                                                                                           └── Windows 11 VM (192.168.x.x)
+
+
+
+Windows (Target)
+
+Network Type: [Host-only/Bridged/NAT]
+IP Range: 192.168.x.x/24
+Gateway: 192.168.x.1
+DNS: [DNS configuration]
+
+
+
+
+
