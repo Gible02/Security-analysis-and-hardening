@@ -1,0 +1,13 @@
+
+Win11 Terminal: 
+       >Disable Windows Defender<
+Set-MpPreference -DisableRealtimeMonitoring $true
+
+# Disable Windows Firewall
+netsh advfirewall set allprofiles state off
+
+# Enable Remote Desktop
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+
+
+
