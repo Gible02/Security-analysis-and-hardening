@@ -33,6 +33,118 @@ nmap -sS -sV -O -A [WINDOWS_IP]
 sudo apt update && sudo apt install openvas
 
                               # Setup OpenVAS                             
-sudo gvm-setup                                                               9:09pm
-sudo gvm-start                                                                                         i didnt know it would take so long 
+sudo gvm-setup                                                               9:09pm       i didnt know it would take so long 
+                            start OpenVas                                    
+sudo gvm-start                                                               9:35pm           just navigated green its looks cool                                                                
+
+find ip of win11           
+                ipconfig                                                     9:45pm
+locate vm
+nmap -sn 0.0.0.0                                                                   9:57pm
+
+                 ip scanned                                                      10:00pm 
+nmap -p 0.0.0.0                              
+          run hydra password attack                                               10:06pm
+ hydra -l vboxuser -p [WIN11] 0.0.0.0 rdp
+
+WIN11:
+
+  Enable remote desktop                                i didnt do that so i didnt get access the first time          10:09pm
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
+verify remote desktop                                                                 10:19pm
+                       Get-Service TermService 
+Kali:
+
+second try 
+hydra -l XXXX -p XXXX                                                                     10:49pm 
+
+try to run attack 
+hydra -l XXXXX -p XXXXXX X.X.X.X smb                                                   10:48pm
+
+WIn11:
+
+    Enable SMB
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol                                  10:52
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol-Client
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol-Server
+
+# Check SMB status
+Get-SmbServerConfiguration
+
+Kali:
+TRYING RDP                                                                        11:04
+hydra -l XXXXX -p XXXXXX X.X.X.X rdp
+
+Win11: 
+                    enable SMB1                                    11:09pm
+dism /online /enable-feature /featurename:SMB1Protocol                                        realized later that SMB1 protocal is not a vslid feature name in windows
+
+    tried again out of desperation                                 11:18pm
+hydra -l vboxuser -p XXXXX  X.x.X.X rdp
+
+
+Win11:
+
+                          Install OpenSSH Server                              tring to access from another way than planned 
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~X.X.X.X                                  11:21pm 
+
+                      syntax error
+hydra -l vboxuser -p XXXX    X.X.X.X ssh                                                   11:29
+                        corrected
+hydra -l vboxuser -p XXXX    X.X.X.X ssh                                                   11:30
+
+Win11:
+
+ enable the target for RDP 
+net localgroup "Remote Desktop Users" XXXXX /add                       11:36P
+
+    RDP settings verification
+Get-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections"              11:39Pm
+
+
+attempt creating a simple file share to test SMB credentials
+
+net share testshare=C:\temp /grant:everyone,full                                            11:42pm
+
+Kali:
+
+Test from kali
+smbclient //10.0.2.15/testshare -U vboxuser               connection failed again            11:43Pm 
+        
+              test ssh command                         failed 
+hydra -l vboxuser -p password123 10.0.2.15 ssh                                             11:50Pm 
+
+   test SMB command                          failed 
+ smbclient //10.0.2.15/testshare -U vboxuser                             11:51Pm 
+
+test RDP command                  failed                   
+hydra -l vboxuser -p password123 10.0.2.15 rdp                          11:52pm 
+
+Win11:
+                     disable Windows Firewall
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False                               11:56Pm
+
+              Check firewall status                                                                    11:56Pm
+Get-NetFirewallProfile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
