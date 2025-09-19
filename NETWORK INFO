@@ -7,8 +7,8 @@ IP Range: 10.0.0.0/24                                                           
 Gateway: 10.0.0.1                                                                       |
 DNS: 8.8.8.8                                                                    [Virtual Network]
                                                                                         |
-                                                                                        ├── Kali Linux VM (192.168.x.x)
-                                                                                        └── Windows 11 VM (192.168.x.x)
+                                                                                        ├── Kali Linux VM (10.0.0.50)
+                                                                                        └── Windows 11 VM (10.0.0.100)
 
 
 
