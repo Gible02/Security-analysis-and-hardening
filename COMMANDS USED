@@ -1,13 +1,18 @@
 
 Win11 Terminal: 
-       >Disable Windows Defender<                                        11:50pm
+       >Disable Windows Defender<                                        11:50am
 Set-MpPreference -DisableRealtimeMonitoring $true
 
-# Disable Windows Firewall                                               11:52pm
+# Disable Windows Firewall                                               11:52am
 netsh advfirewall set allprofiles state off
 
-# Enable Remote Desktop                                                  11:54pm
+# Enable Remote Desktop                                                  11:54am
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0 
 
+
+# Create weak user accounts
+net user testuser Password1 /add      
+net user guest Password1 /add /active:yes              
+net localgroup administrators testuser /add                              8:49pm
 
 
