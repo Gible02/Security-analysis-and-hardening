@@ -1,18 +1,30 @@
 
 Win11 Terminal: 
-       >Disable Windows Defender<                                        11:50am
+                         <Disable Windows Defender>                      11:50am
 Set-MpPreference -DisableRealtimeMonitoring $true
 
 # Disable Windows Firewall                                               11:52am
 netsh advfirewall set allprofiles state off
 
-# Enable Remote Desktop                                                  11:54am
+                             <Enable Remote Desktop>                  11:54am
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0 
 
 
-# Create weak user accounts
+                                   <Create weak user accounts>
 net user testuser Password1 /add      
 net user guest Password1 /add /active:yes              
 net localgroup administrators testuser /add                              8:49pm
 
+
+                           <Create open network share>
+mkdir C:\SharedFiles                                                      8:52pm
+net share SharedFiles=C:\SharedFiles /grant:Everyone,FULL
+
+ Kali Terminal: 
+
+                          <Find the Windows target>                         9:06pm
+nmap -sn 192.168.1.0/24
+
+                         <Detailed scan of Windows target>                  9:06pm
+nmap -sS -sV -O -A [WINDOWS_IP]
 
