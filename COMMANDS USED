@@ -28,3 +28,11 @@ nmap -sn 192.168.1.0/24
                          <Detailed scan of Windows target>                  9:06pm
 nmap -sS -sV -O -A [WINDOWS_IP]
 
+
+                           # Install OpenVAS on Kali                         9:09pm
+sudo apt update && sudo apt install openvas
+
+                              # Setup OpenVAS                             
+sudo gvm-setup                                                               9:09pm
+sudo gvm-start                                                                                         i didnt know it would take so long 
+
