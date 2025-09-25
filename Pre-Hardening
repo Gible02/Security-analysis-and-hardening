@@ -1,0 +1,19 @@
+ Pre Security Hardening Implementation 
+Overview
+After identifying and exploiting critical vulnerabilities in the Windows 11 target system, this phase focuses on implementing security hardening measures to remediate the discovered weaknesses and establish a robust security posture.
+Pre-Hardening Security State
+Identified Vulnerabilities
+
+Critical: Weak password policy (password123)
+Critical: Windows Defender real-time protection disabled
+Critical: Windows Firewall completely disabled
+High: Excessive administrative privileges
+High: Unnecessary network services exposed
+Medium: SMB legacy protocols enabled
+
+Attack Vectors Successfully Exploited
+
+SSH credential attacks
+RDP credential attacks
+Administrative privilege escalation
+Network service enumeration
